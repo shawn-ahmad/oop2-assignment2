@@ -8,4 +8,18 @@ public class Sedan extends Vehicle {
         super(carID, vehicleType, subtype, speed, fuel, seats, year, drivetrain, price, quantity);
         this.trunkSize = trunkSize;
     }
+
+    public String getTrunkSize() {
+        return trunkSize;
+    }
+
+    public void setTrunkSize(String trunkSize) {
+        this.trunkSize = trunkSize;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "\nTrunk Size: " + trunkSize;
+    }
 }

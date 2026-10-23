@@ -75,10 +75,61 @@ public class VehicleManager {
                                 parts[7], Integer.parseInt(parts[8]), Integer.parseInt(parts[9]), parts[10], Integer.parseInt(parts[11])
                         );
                 }
+                inFile.close(); //close the scanner
             }
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) { //catch the exception if file not found
             e.printStackTrace();
         }
     }
+
+    private void displayMenu() {
+        int choice = 0;
+        while (choice != 5) {
+            //display menu with formatted options
+            System.out.println("Welcome to Drive Masters");
+            System.out.println("Please choose any option below");
+            System.out.println("---------------------------------------");
+            System.out.printf("%-5s%s%n", "1", "Purchase Vehicle");
+            System.out.printf("%-5s%s%n", "2", "Display Vehicles by Type");
+            System.out.printf("%-5s%s%n", "3", "Display Vehicles by Type-Specific Attribute");
+            System.out.printf("%-5s%s%n", "4", "Produce a Random List of Vehicles");
+            System.out.printf("%-5s%s%n%n", "5", "Save & Exit");
+            System.out.print("Enter an option: "); //parse the user input to an integer
+            choice = Integer.parseInt(keyboard.nextLine());
+            switch(choice){
+                case 1:
+                    purchaseVehicle();
+                    break;
+                case 2:
+                    generateMovieListInYear();
+                    break;
+                case 3:
+                    generateRandomMovieList();
+                    break;
+                case 4:
+                    saveMovieListToFile();
+                    break;
+                default:
+                    System.out.println("Invalid option!");
+            }
+        }
+    }
+
+    private void purchaseVehicle() {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("Enter Car ID: ");
+        long carID = Long.parseLong(keyboard.nextLine());
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getCarID() == carID && vehicle.isAvailable()) {
+                vehicle.purchase();
+                System.out.printf("The Vehicle \"%s %s\" has been purchased.", vehicle.getVehicleType(),
+                        vehicle.getSubtype());
+                } else {
+                    System.out.printf("The Vehicle \"%s %s\" is not available.", vehicle.getVehicleType(),
+                            vehicle.getSubtype());
+            }
+        }
+    }
+
 
 }

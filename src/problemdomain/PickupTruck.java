@@ -10,4 +10,27 @@ public class PickupTruck extends Vehicle {
         this.cargoBedType = cargoBedType;
         this.cargoCapacity = cargoCapacity;
     }
+
+    public String getCargoBedType() {
+        return cargoBedType;
+    }
+
+    public void setCargoBedType(String cargoBedType) {
+        this.cargoBedType = cargoBedType;
+    }
+
+    public int getCargoCapacity() {
+        return cargoCapacity;
+    }
+
+    public void setCargoCapacity(int cargoCapacity) {
+        this.cargoCapacity = cargoCapacity;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "\nCargo Capacity: " + cargoCapacity +
+                "\nCargo Bed Type: " + cargoBedType;
+    }
 }

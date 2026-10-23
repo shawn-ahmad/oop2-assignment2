@@ -110,6 +110,27 @@ public abstract class Vehicle {
     }
 
     public boolean isAvailable() {
+        return this.quantity > 0;
+    }
 
+    public void purchase() {
+        if (this.isAvailable()) {
+            this.quantity--;
+        }
+
+    }
+
+    @Override
+    public String toString() {
+        return  "Car ID: " + carID +
+                "\nVehicle Type: " + vehicleType +
+                "\nSub Type: " + subtype +
+                "\nSpeed: " + speed +
+                "\nFuel: " + fuel +
+                "\nNumber of Seats: " + seats +
+                "\nYear: " + year +
+                "\nDrivetrain: " + drivetrain +
+                "\nPrice: " + price +
+                "\nAvailable: " + quantity;
     }
 }

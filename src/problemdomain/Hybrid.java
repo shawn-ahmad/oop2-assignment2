@@ -10,4 +10,27 @@ public class Hybrid extends Vehicle {
         this.powertrain = powertrain;
         this.electricRange = electricRange;
     }
+
+    public String getPowertrain() {
+        return powertrain;
+    }
+
+    public void setPowertrain(String powertrain) {
+        this.powertrain = powertrain;
+    }
+
+    public int getElectricRange() {
+        return electricRange;
+    }
+
+    public void setElectricRange(int electricRange) {
+        this.electricRange = electricRange;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "\nPowertrain: " + powertrain +
+                "\nElectric Range: " + electricRange;
+    }
 }

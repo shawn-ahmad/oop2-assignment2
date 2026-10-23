@@ -5,4 +5,9 @@ public class SUV extends Vehicle {
                String drivetrain, int price, int quantity) {
         super(carID, vehicleType, subtype, speed, fuel, seats, year, drivetrain, price, quantity);
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }
